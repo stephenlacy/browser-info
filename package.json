@@ -1,0 +1,19 @@
+{
+  "name": "browser-info",
+  "version": "0.0.1",
+  "description": "Get browser info",
+  "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
+  "main": "./index.js",
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "mochify": "^2.7.0",
+    "should": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "browser",
+    "info"
+  ]
+}
