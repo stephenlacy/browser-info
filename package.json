@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Get browser info",
   "author": "Steve Lacy <me@slacy.me> (http://slacy.me)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stevelacy/browser-info.git"
+  },
   "main": "./index.js",
   "devDependencies": {
     "mocha": "^2.2.1",
