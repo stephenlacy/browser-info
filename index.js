@@ -26,7 +26,7 @@ function info(){
   if (/trident/i.test(match[1])) {
     tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
     return {
-      name: 'IE ',
+      name: 'IE',
       version: (tem[1]||''),
       os: os
     };
