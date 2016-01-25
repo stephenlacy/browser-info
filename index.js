@@ -14,7 +14,7 @@ function info(){
     os = 'Windows';
   }
   if (ua.indexOf('Mac') !== -1) {
-    os = 'MacOS';
+    os = 'OS X';
   }
   if (ua.indexOf('X11') !== -1) {
     os = 'UNIX';
