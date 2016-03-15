@@ -19,8 +19,11 @@ function info(){
   if (ua.indexOf('X11') !== -1) {
     os = 'UNIX';
   }
-  if (ua.indexOf('Linux' )!== -1) {
+  if (ua.indexOf('Linux' ) !== -1) {
     os = 'Linux';
+  }
+  if (ua.indexOf('Android') !== -1) {
+     os = 'Android';
   }
 
   if (/trident/i.test(match[1])) {
