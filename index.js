@@ -25,6 +25,9 @@ function info(){
   if (ua.indexOf('Android') !== -1) {
      os = 'Android';
   }
+  if (/iPad|iPhone|iPod/.test(ua)) {
+    os = 'iOS';
+  }
 
   if (/trident/i.test(match[1])) {
     tem = /\brv[ :]+(\d+)/g.exec(ua) || [];

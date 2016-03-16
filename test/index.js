@@ -24,4 +24,14 @@ describe('browser-info', function() {
      done();
  });
 
+ it('should detect iOS', function(done) {
+    GLOBAL.navigator = {
+        userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1'
+    };
+    should(info().os).equal('iOS');
+    done();
+  });
+
+
+
 });
