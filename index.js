@@ -8,7 +8,7 @@ function info(){
   var tem;
   var os;
 
-  var match = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+  var match = ua.match(/(opera|chrome|safari|firefox|msie|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
 
   if (ua.indexOf('Win') !== -1) {
     os = 'Windows';
@@ -39,6 +39,15 @@ function info(){
     if (tem !== null) {
       return {
         name: 'Opera',
+        version: tem[1],
+        os: os
+      };
+    }
+
+    tem = ua.match(/\bEdge\/(\d+)/);
+    if (tem !== null) {
+      return {
+        name: 'Edge',
         version: tem[1],
         os: os
       };
