@@ -41,4 +41,12 @@ describe('browser-info', function() {
      done();
   });
 
+  it('should detect IE mobile', function(done) {
+      GLOBAL.navigator = {
+          userAgent: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)'
+      };
+
+      should(info().name).equal('IEMobile');
+      done();
+  });
 });
