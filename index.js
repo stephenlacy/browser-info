@@ -40,6 +40,14 @@ function info(){
       os: os
     };
   }
+  if (match[1] === 'MSIE') {
+      tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+      return {
+          name: 'IEMobile',
+          version: (tem[1]||''),
+          os: os
+      };
+  }
   if (match[1] === 'Chrome') {
     tem = ua.match(/\bOPR\/(\d+)/);
     if (tem !== null) {
