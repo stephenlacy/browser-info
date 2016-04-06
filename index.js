@@ -8,7 +8,7 @@ function info(){
   var tem;
   var os;
 
-  var match = ua.match(/(opera|chrome|safari|firefox|msie|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
+  var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
 
   if (ua.indexOf('Win') !== -1) {
     os = 'Windows';
@@ -27,6 +27,9 @@ function info(){
   }
   if (/iPad|iPhone|iPod/.test(ua)) {
     os = 'iOS';
+  }
+  if (ua.indexOf('Windows Phone') !== -1) {
+      os = 'Windows Phone';
   }
 
   if (/trident/i.test(match[1])) {
