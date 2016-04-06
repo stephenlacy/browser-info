@@ -8,7 +8,7 @@ function info(){
   var tem;
   var os;
 
-  var match = ua.match(/(opera|chrome|safari|firefox|msie|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
+  var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
 
   if (ua.indexOf('Win') !== -1) {
     os = 'Windows';
@@ -28,6 +28,9 @@ function info(){
   if (/iPad|iPhone|iPod/.test(ua)) {
     os = 'iOS';
   }
+  if (ua.indexOf('Windows Phone') !== -1) {
+      os = 'Windows Phone';
+  }
 
   if (/trident/i.test(match[1])) {
     tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
@@ -36,14 +39,6 @@ function info(){
       version: (tem[1]||''),
       os: os
     };
-  }
-  if (match[1] === 'MSIE') {
-      tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
-      return {
-          name: 'IEMobile',
-          version: (tem[1]||''),
-          os: os
-      };
   }
   if (match[1] === 'Chrome') {
     tem = ua.match(/\bOPR\/(\d+)/);
