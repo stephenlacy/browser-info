@@ -8,7 +8,8 @@ function info(){
   var tem;
   var os;
 
-  var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*(\d+)/i) || [];
+  var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\d+)/i) || [];
+
 
   if (ua.indexOf('Win') !== -1) {
     os = 'Windows';
@@ -23,13 +24,22 @@ function info(){
     os = 'Linux';
   }
   if (ua.indexOf('Android') !== -1) {
-     os = 'Android';
+    os = 'Android';
   }
   if (/iPad|iPhone|iPod/.test(ua)) {
     os = 'iOS';
   }
   if (ua.indexOf('Windows Phone') !== -1) {
-      os = 'Windows Phone';
+    os = 'Windows Phone';
+  }
+
+  tem = ua.match(/\bIEMobile\/(\d+)/);
+  if (tem !== null) {
+    return {
+      name: 'IEMobile',
+      version: (tem[1]||''),
+      os: os
+    };
   }
 
   if (/trident/i.test(match[1])) {
@@ -40,14 +50,7 @@ function info(){
       os: os
     };
   }
-  if (match[1] === 'MSIE') {
-      tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
-      return {
-          name: 'IEMobile',
-          version: (tem[1]||''),
-          os: os
-      };
-  }
+
   if (match[1] === 'Chrome') {
     tem = ua.match(/\bOPR\/(\d+)/);
     if (tem !== null) {
@@ -68,8 +71,11 @@ function info(){
     }
   }
   match = match[2]? [match[1], match[2]]: [navigator.appName, navigator.appVersion, '-?'];
-  if ((tem = ua.match(/version\/(\d+)/i)) !== null) {
-    match.splice(1, 1, tem[1]);
+  if (match[0] !== 'Chrome') {
+    var tem = ua.match(/version\/(\d+)/i)
+    if (tem !== null && tem !== '') {
+      match.splice(1, 1, tem[1]);
+    }
   }
   return {
     name: match[0],
