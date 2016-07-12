@@ -29,7 +29,7 @@ $ npm install --save-dev browser-info
 var browserInfo = require('browser-info');
 
 browserInfo();
- // => {name: 'Chrome', version: '42', os: 'Linux'}
+ // => {name: 'Chrome', version: '42', fullVersion: '42.1246.0.12', os: 'Linux'}
 
 
 ```
