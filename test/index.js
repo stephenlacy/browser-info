@@ -11,6 +11,7 @@ describe('browser-info', function() {
     };
     should(info().name).equal('Chrome');
     should(info().version).equal('42');
+    should(info().fullVersion).equal('42.0.2311.68');
     should(info().os).equal('Linux');
     done();
 
@@ -23,6 +24,7 @@ describe('browser-info', function() {
     should(info().os).equal('Android');
     should(info().name).equal('Chrome');
     should(info().version).equal('48');
+    should(info().fullVersion).equal('48.0.2564.23');
     done();
  });
 
@@ -33,6 +35,7 @@ describe('browser-info', function() {
     should(info().os).equal('iOS');
     should(info().name).equal('Safari');
     should(info().version).equal('9');
+    should(info().fullVersion).equal('9.0');
     done();
   });
 
@@ -44,6 +47,7 @@ describe('browser-info', function() {
     should(info().os).equal('Windows');
     should(info().name).equal('Edge');
     should(info().version).equal('13');
+    should(info().fullVersion).equal('13');
     done();
   });
 
@@ -55,15 +59,30 @@ describe('browser-info', function() {
     should(info().os).equal('Windows Phone');
     should(info().name).equal('IEMobile');
     should(info().version).equal('9');
+    should(info().fullVersion).equal('9.0');
     done();
   });
 
+  it('should detect Opera', function(done) {
+    global.navigator = {
+      userAgent: 'Opera/9.80 (X11; Linux i686; Ubuntu/14.10) Presto/2.12.388 Version/12.16'
+    };
+
+    should(info().name).equal('Opera');
+    should(info().os).equal('Linux');
+    should(info().version).equal('12');
+    should(info().fullVersion).equal('12.16');
+    done();
+  });
   it('should detect IE', function(done) {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'
     };
 
     should(info().name).equal('IE');
+    should(info().os).equal('Windows');
+    should(info().version).equal('11');
+    should(info().fullVersion).equal('11.0');
     done();
   });
 
@@ -74,6 +93,7 @@ describe('browser-info', function() {
 
     should(info().name).equal('Chrome');
     should(info().version).equal('34');
+    should(info().fullVersion).equal('34.0.1847.116');
     done();
   });
 });
