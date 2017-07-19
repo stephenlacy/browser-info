@@ -47,7 +47,7 @@ function info(){
     tem = /\brv[ :]+(\S+[0-9])/g.exec(ua) || [];
     return {
       name: 'IE',
-      version: tem[1].split('.')[0],
+      version: tem[1] && tem[1].split('.')[0],
       fullVersion: tem[1],
       os: os
     };
