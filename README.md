@@ -28,10 +28,13 @@ $ npm install --save-dev browser-info
 ```js
 var browserInfo = require('browser-info');
 
+// on Browser
 browserInfo();
  // => {name: 'Chrome', version: '42', fullVersion: '42.1246.0.12', os: 'Linux'}
 
-
+// on Server
+browserInfo(req.headers['user-agent']);
+ // => same info
 ```
 
 #### PRs welcome for additional features
