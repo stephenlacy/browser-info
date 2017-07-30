@@ -3,8 +3,8 @@
 'use strict';
 
 
-function info(){
-  var ua = navigator.userAgent;
+function info(userAgent){
+  var ua = userAgent || navigator.userAgent;
   var tem;
   var os;
 
