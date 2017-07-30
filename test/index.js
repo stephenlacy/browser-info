@@ -96,4 +96,15 @@ describe('browser-info', function() {
     should(info().fullVersion).equal('34.0.1847.116');
     done();
   });
+
+  it('should detect IE from argument', function(done) {
+    var userAgent = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'
+
+    should(info(userAgent).name).equal('IE');
+    should(info(userAgent).os).equal('Windows');
+    should(info(userAgent).version).equal('11');
+    should(info(userAgent).fullVersion).equal('11.0');
+    done();
+  });
+
 });
