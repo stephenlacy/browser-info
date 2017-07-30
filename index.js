@@ -11,26 +11,20 @@ function info(userAgent){
   var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\S+)/i) || [];
 
 
-  if (ua.indexOf('Win') !== -1) {
-    os = 'Windows';
-  }
-  if (ua.indexOf('Mac') !== -1) {
-    os = 'OS X';
-  }
-  if (ua.indexOf('X11') !== -1) {
-    os = 'UNIX';
-  }
-  if (ua.indexOf('Linux' ) !== -1) {
-    os = 'Linux';
-  }
-  if (ua.indexOf('Android') !== -1) {
-    os = 'Android';
-  }
-  if (/iPad|iPhone|iPod/.test(ua)) {
-    os = 'iOS';
-  }
   if (ua.indexOf('Windows Phone') !== -1) {
     os = 'Windows Phone';
+  } else if (ua.indexOf('Win') !== -1) {
+    os = 'Windows';
+  } else if (ua.indexOf('Android') !== -1) {
+    os = 'Android';
+  } else if (ua.indexOf('Linux') !== -1) {
+    os = 'Linux';
+  } else if (ua.indexOf('X11') !== -1) {
+    os = 'UNIX';
+  } else if (/iPad|iPhone|iPod/.test(ua)) {
+    os = 'iOS';
+  } else if (ua.indexOf('Mac') !== -1) {
+    os = 'OS X';
   }
 
   tem = ua.match(/\bIEMobile\/(\S+[0-9])/);
