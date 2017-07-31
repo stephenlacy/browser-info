@@ -92,6 +92,7 @@ describe('browser-info', function() {
     };
 
     should(info().name).equal('Chrome');
+    should(info().os).equal('Windows');
     should(info().version).equal('34');
     should(info().fullVersion).equal('34.0.1847.116');
     done();
