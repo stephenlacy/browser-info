@@ -6,26 +6,32 @@
 function info(userAgent){
   var ua = userAgent || navigator.userAgent;
   var tem;
-  var os;
 
   var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\S+)/i) || [];
 
-
-  if (ua.indexOf('Windows Phone') !== -1) {
-    os = 'Windows Phone';
-  } else if (ua.indexOf('Win') !== -1) {
-    os = 'Windows';
-  } else if (ua.indexOf('Android') !== -1) {
-    os = 'Android';
-  } else if (ua.indexOf('Linux') !== -1) {
-    os = 'Linux';
-  } else if (ua.indexOf('X11') !== -1) {
-    os = 'UNIX';
-  } else if (/iPad|iPhone|iPod/.test(ua)) {
-    os = 'iOS';
-  } else if (ua.indexOf('Mac') !== -1) {
-    os = 'OS X';
-  }
+  var os = (function (match){
+    if (ua.indexOf('Windows Phone') !== -1) {
+      return 'Windows Phone';
+    }
+    if (ua.indexOf('Win') !== -1) {
+      return 'Windows';
+    }
+    if (ua.indexOf('Android') !== -1) {
+      return 'Android';
+    }
+    if (ua.indexOf('Linux') !== -1) {
+      return 'Linux';
+    }
+    if (ua.indexOf('X11') !== -1) {
+      return 'UNIX';
+    }
+    if (/iPad|iPhone|iPod/.test(ua)) {
+      return 'iOS';
+    }
+    if (ua.indexOf('Mac') !== -1) {
+      return 'OS X';
+    }
+  })(match);
 
   tem = ua.match(/\bIEMobile\/(\S+[0-9])/);
   if (tem !== null) {
