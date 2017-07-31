@@ -74,6 +74,18 @@ describe('browser-info', function() {
     should(info().fullVersion).equal('12.16');
     done();
   });
+
+  it('should detect OperaCoast', function(done) {
+    global.navigator = {
+      userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1_1 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Coast/5.04.110603 Mobile/14B100 Safari/7534.48.3'
+    };
+    should(info().os).equal('iOS');
+    should(info().name).equal('OperaCoast');
+    should(info().version).equal('5');
+    should(info().fullVersion).equal('5.04.110603');
+    done();
+  });
+
   it('should detect IE', function(done) {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko'

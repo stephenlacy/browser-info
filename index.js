@@ -7,7 +7,7 @@ function info(userAgent){
   var ua = userAgent || navigator.userAgent;
   var tem;
 
-  var match = ua.match(/(opera|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\S+)/i) || [];
+  var match = ua.match(/(opera|coast|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\S+)/i) || [];
 
   var os = (function (match){
     if (ua.indexOf('Windows Phone') !== -1) {
@@ -75,6 +75,11 @@ function info(userAgent){
     }
   }
   match = match[2]? [match[1], match[2]]: [navigator.appName, navigator.appVersion, '-?'];
+
+  if (match[0] === 'Coast') {
+    match[0] = 'OperaCoast';
+  }
+
   if (match[0] !== 'Chrome') {
     var tem = ua.match(/version\/(\S+)/i)
     if (tem !== null && tem !== '') {
