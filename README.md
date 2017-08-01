@@ -1,4 +1,4 @@
-#browser-info
+# browser-info
 [![Build Status](https://travis-ci.org/stevelacy/browser-info.png?branch=master)](https://travis-ci.org/stevelacy/browser-info)
 [![NPM version](https://badge.fury.io/js/browser-info.png)](http://badge.fury.io/js/browser-info)
 
