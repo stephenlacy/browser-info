@@ -2,36 +2,36 @@
 
 'use strict';
 
+function getOS(userAgent){
+  if (userAgent.indexOf('Windows Phone') !== -1) {
+    return 'Windows Phone';
+  }
+  if (userAgent.indexOf('Win') !== -1) {
+    return 'Windows';
+  }
+  if (userAgent.indexOf('Android') !== -1) {
+    return 'Android';
+  }
+  if (userAgent.indexOf('Linux') !== -1) {
+    return 'Linux';
+  }
+  if (userAgent.indexOf('X11') !== -1) {
+    return 'UNIX';
+  }
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
+    return 'iOS';
+  }
+  if (userAgent.indexOf('Mac') !== -1) {
+    return 'OS X';
+  }
+}
 
 function info(userAgent){
   var ua = userAgent || navigator.userAgent;
   var tem;
 
+  var os = getOS(ua);
   var match = ua.match(/(opera|coast|chrome|safari|firefox|edge|trident(?=\/))\/?\s*?(\S+)/i) || [];
-
-  var os = (function (match){
-    if (ua.indexOf('Windows Phone') !== -1) {
-      return 'Windows Phone';
-    }
-    if (ua.indexOf('Win') !== -1) {
-      return 'Windows';
-    }
-    if (ua.indexOf('Android') !== -1) {
-      return 'Android';
-    }
-    if (ua.indexOf('Linux') !== -1) {
-      return 'Linux';
-    }
-    if (ua.indexOf('X11') !== -1) {
-      return 'UNIX';
-    }
-    if (/iPad|iPhone|iPod/.test(ua)) {
-      return 'iOS';
-    }
-    if (ua.indexOf('Mac') !== -1) {
-      return 'OS X';
-    }
-  })(match);
 
   tem = ua.match(/\bIEMobile\/(\S+[0-9])/);
   if (tem !== null) {
