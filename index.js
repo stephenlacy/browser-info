@@ -86,6 +86,13 @@ function info(userAgent){
       match.splice(1, 1, tem[1]);
     }
   }
+
+  if (match[0] === 'Firefox') {
+    match[0] = /waterfox/i.test(ua)
+      ? 'Waterfox'
+      : match[0];
+  }
+
   return {
     name: match[0],
     version: match[1].split('.')[0],

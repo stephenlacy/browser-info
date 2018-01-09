@@ -75,6 +75,30 @@ describe('browser-info', function() {
     done();
   });
 
+  it('should detect Firefox', function(done) {
+    global.navigator = {
+      userAgent: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0'
+    };
+
+    should(info().name).equal('Firefox');
+    should(info().os).equal('Linux');
+    should(info().version).equal('57');
+    should(info().fullVersion).equal('57.0');
+    done();
+  });
+
+  it('should detect Waterfox', function(done) {
+    global.navigator = {
+      userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x86; rv:40.0) Gecko/20100101 Firefox/40.0.2 Waterfox/40.0.2'
+    };
+
+    should(info().name).equal('Waterfox');
+    should(info().os).equal('Windows');
+    should(info().version).equal('40');
+    should(info().fullVersion).equal('40.0.2');
+    done();
+  });
+
   it('should detect OperaCoast', function(done) {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_1_1 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Coast/5.04.110603 Mobile/14B100 Safari/7534.48.3'
