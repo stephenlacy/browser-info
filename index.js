@@ -64,7 +64,7 @@ function info(userAgent){
       };
     }
 
-    tem = ua.match(/\bEdge\/(\S+)/);
+    tem = ua.match(/\bEdg\/(\S+)/) || ua.match(/\bEdge\/(\S+)/);
     if (tem !== null) {
       return {
         name: 'Edge',
